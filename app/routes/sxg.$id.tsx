@@ -2,7 +2,7 @@ export const loader = async ({ context, params }: LoaderFunctionArgs) => {
 const domain = 'http://live2.rxip.sc96655.com';
 
 var ids = params.id;//'emdy_800';
-var id = ids.split('.')[0]:
+var id = ids.split('.')[0];
 var ch_arr = id.split('_');
 
 let ch_id = ch_arr[0];
