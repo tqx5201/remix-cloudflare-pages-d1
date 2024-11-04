@@ -1,14 +1,14 @@
 //import{ useLoaderData } from "@remix-run/react";
 
-export const loader = async ({ context, params }: LoaderFunctionArgs) => {
+export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 const domain = 'http://live2.rxip.sc96655.com';
 //const [searchParams] = useSearchParams();
 //const playseek = searchParams.get("playseek");
-const playseek = params.playseek;
-
-	
+const url = new URL(request.url);
+const playseek = url.searchParams.get("playseek");
+const { id } = params;
 if(playseek){
-    return new Response(playseek, {
+    return new Response(id+"///"+playseek, {
     	headers: { 'Content-Type': 'application/vnd.apple.mpegurl'},
     });
 }
