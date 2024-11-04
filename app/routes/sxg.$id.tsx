@@ -1,7 +1,8 @@
 export const loader = async ({ context, params }: LoaderFunctionArgs) => {
 const domain = 'http://live2.rxip.sc96655.com';
 
-var id = params.id;//'emdy_800';
+var ids = params.id;//'emdy_800';
+var id = ids.split('.')[0]:
 var ch_arr = id.split('_');
 
 let ch_id = ch_arr[0];
@@ -27,8 +28,7 @@ for (var i = 0; i < 6; i++) {
     //header("Content-Disposition: attachment; filename=mnf.m3u8");
     //console.log(current);
     return new Response(current, {
-    headers: { 'Content-Type': 'application/vnd.apple.mpegurl',
-	       'Content-Disposition': 'attachment; filename=mnf.m3u8'
+    headers: { 'Content-Type': 'application/vnd.apple.mpegurl'
 	     },
   });
 
