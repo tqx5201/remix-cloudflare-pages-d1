@@ -1,6 +1,15 @@
+import{ useSearchParams } from "@remix-run/react";
+
 export const loader = async ({ context, params }: LoaderFunctionArgs) => {
 const domain = 'http://live2.rxip.sc96655.com';
-
+const [searchParams] = useSearchParams();
+const playseek = searchParams.get("playseek");
+if(playseek){
+    return new Response(playseek, {
+    	headers: { 'Content-Type': 'application/vnd.apple.mpegurl'},
+    });
+}
+	
 var ids = params.id;//'emdy_800';
 var id = ids.split('.')[0];
 var ch_arr = id.split('_');
@@ -28,9 +37,8 @@ for (var i = 0; i < 6; i++) {
     //header("Content-Disposition: attachment; filename=mnf.m3u8");
     //console.log(current);
     return new Response(current, {
-    headers: { 'Content-Type': 'application/vnd.apple.mpegurl'
-	     },
-  });
+    	headers: { 'Content-Type': 'application/vnd.apple.mpegurl'},
+    });
 
 }
 //export async function loader() {}
