@@ -14,8 +14,8 @@ if(playseek){
 }
 	
 var ids = params.id;//'emdy_800';
-var id = ids.split('.')[0];
-var ch_arr = id.split('_');
+var _id = ids.split('.')[0];
+var ch_arr = _id.split('_');
 
 let ch_id = ch_arr[0];
 let ch_qxd = ch_arr[1];
