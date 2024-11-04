@@ -8,12 +8,12 @@ const url = new URL(request.url);
 const playseek = url.searchParams.get("playseek");
 const { id } = params;//另一种写法params.id;//'emdy_800';
 if(playseek){
-    	get_back(playseek,id,domain);
+    get_back(playseek,id,domain);
 }else{
 	get_live(id,domain);
 }
 	
-
+	
 
 
 }
