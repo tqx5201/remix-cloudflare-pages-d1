@@ -27,7 +27,9 @@ for (var i = 0; i < 6; i++) {
     //header("Content-Disposition: attachment; filename=mnf.m3u8");
     //console.log(current);
     return new Response(current, {
-    headers: { 'Content-Type': 'application/vnd.apple.mpegurl' },
+    headers: { 'Content-Type': 'application/vnd.apple.mpegurl',
+	       'Content-Disposition': 'attachment; filename=mnf.m3u8'
+	     },
   });
 
 }
