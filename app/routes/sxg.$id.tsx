@@ -9,7 +9,7 @@ const playseek = url.searchParams.get("playseek");
 const { id } = params;
 if(playseek){
     return new Response(id+"///"+playseek, {
-    	headers: { 'Content-Type': 'application/vnd.apple.mpegurl'},
+    	headers: { 'Content-Type': 'text/plain'},
     });
 }
 	
