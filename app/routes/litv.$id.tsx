@@ -51,6 +51,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
 function get_m3u8(ids){
 	ids = ids.replace(".m3u8", "");
+	return ids;
 	let avc1_mp4a = [];
 	let video_id = null;
 	if (ids.includes("@")) {
