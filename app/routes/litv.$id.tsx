@@ -1,18 +1,19 @@
 //import{ useLoaderData } from "@remix-run/react";
-//const url = new URL('https://remix.7259.us.kg/litv/4gtv-4gtv001@1-2.m3u8');
+//const url = new URL('https://remix.7259.us.kg/litv/4gtv-4gtv001@1-2.m3u8');console.log(url);
 //let ids = '4gtv-4gtv001@1-2.m3u8';
 //ids = '4gtv-4gtv001.m3u8';
 //console.log(get_m3u8(ids));
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 	const url = new URL(request.url);
-	if(url.pathname.endsWith('.m3u8')){
+	const { ids } = params;//另一种写法params.id;//'4gtv-4gtv001@1-2.m3u8';
+	if(ids.endsWith('.m3u8')){
 		let current = get_m3u8(ids);
 		return new Response(current, {
 			headers: { 'Content-Type': 'text/plain'},
 		});
-	}else if(url.pathname.endsWith('.ts')){
-		let ts_url = url.pathname.replace(".ts", "");
+	}else if(ids.endsWith('.ts')){
+		let ts_url = ids.replace(".ts", "");
 		let ts_arr = ts_url.split("@");
 		//'/litv/4gtv-4gtv001@1@6@77685587.ts';
 		const video_id = ts_arr[0];
