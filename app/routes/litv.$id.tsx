@@ -22,9 +22,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 		const seq = ts_arr[3];
 		const begin = parseInt(seq) *4;
 		const originalUrl = `https://litvpc-hichannel.cdn.hinet.net/live/pool/${video_id}/litv-pc/${video_id}-avc1_6000000=${avc1}-mp4a_134000_zho=${mp4a}-begin=${begin}0000000-dur=40000000-seq=${seq}.ts`;
-		return new Response(originalUrl, {
-			headers: { 'Content-Type': 'text/plain'},
-		});
+
 		const contentType = 'video/MP2T';
 		const ContentDisposition = `attachment; filename=${seq}.ts`;
 		
