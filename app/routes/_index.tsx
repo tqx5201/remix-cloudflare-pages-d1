@@ -2,6 +2,13 @@ import type { LoaderArgs } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 
+type iptv_list = {
+  id: number;
+  name: string;
+  list: string;
+  yys: string;
+};
+
 type Customer = {
   CustomerID: number;
   CompanyName: string;
@@ -12,24 +19,24 @@ export const loader = async ({ context }: LoaderArgs) => {
   const db = context.DB as D1Database;
 
   const { results } = await db
-    .prepare("SELECT * FROM Customers")
-    .all<Customer>();
+    .prepare("SELECT * FROM iptv_list")
+    .all<iptv_lidt>();
 
   return json({
-    customers: results ?? [],
+    iptv_lists: results ?? [],
   });
 };
 
 export default function Index() {
-  const { customers } = useLoaderData<typeof loader>();
+  const { iptv_lists } = useLoaderData<typeof loader>();
 
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to Remix</h1>
       <ul>
-        {customers.map((customer) => (
-          <li key={customer.CustomerID}>
-            {customer.CompanyName}, {customer.ContactName}
+        {customers.map((iptv_list) => (
+          <li key={iptv_list.id}>
+            {iptv_list.name}, {iptv_list.list}
           </li>
         ))}
       </ul>
