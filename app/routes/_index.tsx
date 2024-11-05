@@ -36,7 +36,7 @@ export default function Index() {
       <ul>
         {iptv_lists.map((iptv_list) => (
           <li key={iptv_list.id}>
-            {iptv_list.name}, {iptv_list.list}
+            {iptv_list.name}, {iptv_list.yys}
           </li>
         ))}
       </ul>
