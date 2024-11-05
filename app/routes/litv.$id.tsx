@@ -6,14 +6,14 @@
 
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 	const url = new URL(request.url);
-	const { ids } = params;//另一种写法params.id;//'4gtv-4gtv001@1-2.m3u8';
-	if(ids.endsWith('.m3u8')){
-		let current = get_m3u8(ids);
+	const { id } = params;//另一种写法params.id;//'4gtv-4gtv001@1-2.m3u8';
+	if(id.endsWith('.m3u8')){
+		let current = get_m3u8(id);
 		return new Response(current, {
 			headers: { 'Content-Type': 'text/plain'},
 		});
-	}else if(ids.endsWith('.ts')){
-		let ts_url = ids.replace(".ts", "");
+	}else if(id.endsWith('.ts')){
+		let ts_url = id.replace(".ts", "");
 		let ts_arr = ts_url.split("@");
 		//'/litv/4gtv-4gtv001@1@6@77685587.ts';
 		const video_id = ts_arr[0];
