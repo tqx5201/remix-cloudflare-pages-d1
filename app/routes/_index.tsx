@@ -20,7 +20,7 @@ export const loader = async ({ context }: LoaderArgs) => {
 
   const { results } = await db
     .prepare("SELECT * FROM iptv_list")
-    .all<iptv_lidt>();
+    .all<iptv_list>();
 
   return json({
     iptv_lists: results ?? [],
