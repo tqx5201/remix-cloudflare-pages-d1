@@ -34,7 +34,7 @@ export default function Index() {
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to Remix</h1>
       <ul>
-        {customers.map((iptv_list) => (
+        {customers.map((iptv_lists) => (
           <li key={iptv_lists.id}>
             {iptv_lists.name}, {iptv_lists.list}
           </li>
