@@ -53,6 +53,7 @@ function get_m3u8(ids){
 	ids = ids.replace(".m3u8", "");
 	let avc1_mp4a = [];
 	let video_id = null;
+	return ids+'---'+ids.includes("@");
 	if (ids.includes("@")) {
 		video_ids = ids.split("@");
 		return video_ids[1];
