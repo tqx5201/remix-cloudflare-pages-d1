@@ -5,10 +5,11 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 	const url = new URL(request.url);
 	const playseek = url.searchParams.get("playseek");
 	const { id } = params;//另一种写法params.id;//'emdy_800';
+	let current = null;
 	if(playseek){
-	    let current = get_back(playseek,id,domain);
+		current = get_back(playseek,id,domain);
 	}else{
-		let current = get_live(id,domain);
+		current = get_live(id,domain);
 	}
 	return new Response(current, {
 		headers: { 'Content-Type': 'text/plain'},
