@@ -51,7 +51,6 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
 function get_m3u8(ids){
 	ids = ids.replace(".m3u8", "");
-	return ids;
 	let avc1_mp4a = [];
 	let video_id = null;
 	if (ids.includes("@")) {
@@ -62,6 +61,8 @@ function get_m3u8(ids){
 		video_id = ids;
 		avc1_mp4a = get_avc1_mp4a(video_id);
 	}
+	console.log(avc1_mp4a);
+	return avc1_mp4a[1];
 	let currentTimestamp = Date.now();
 	let seq = Math.floor(currentTimestamp / 4000 - 355017625);
 
