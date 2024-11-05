@@ -55,14 +55,13 @@ function get_m3u8(ids){
 	let video_id = null;
 	if (ids.includes("@")) {
 		video_ids = ids.split("@");
+		return video_ids[1];
 		video_id = video_ids[0];
 		avc1_mp4a = video_ids[1].split("-");
 	}else{
 		video_id = ids;
 		avc1_mp4a = get_avc1_mp4a(video_id);
 	}
-	console.log(avc1_mp4a);
-	return avc1_mp4a[1];
 	let currentTimestamp = Date.now();
 	let seq = Math.floor(currentTimestamp / 4000 - 355017625);
 
