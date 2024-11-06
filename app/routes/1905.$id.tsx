@@ -9,7 +9,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
         "1905b": "LIVE8J4LTCXPI7QJ5",
     };
 
-    var ts = String(new Date().getTime() / 1000);
+    var ts = String(parseInt(Math.floor(new Date().getTime() / 1000)));
     const salt = "689d471d9240010534b531f8409c9ac31e0e6521";
 
     const playerId = ts.substr(6) + ts.substr( - 3) + ts.substr( - 8);
@@ -17,8 +17,8 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
     let myParams = {
         "cid": 999999,
-        "expiretime": (ts + 600),
-        "nonce": ts,
+        "expiretime": (Number(ts) + 600),
+        "nonce": Number(ts),
         "page": "https://www.1905.com/",
         "playerid": playerId,
         "streamname": n[id],
