@@ -24,7 +24,9 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
         "streamname": n[id],
         "uuid": uuid,
     };
-    const http_query = jsonToQueryString(myParams) + "." + salt;
+return new Response(JSON.stringfy(myParams));
+    
+const http_query = jsonToQueryString(myParams) + "." + salt;
     const hashBuffer = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(http_query));
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const sign = hashArray.map(b =>b.toString(16).padStart(2, '0')).join('');
