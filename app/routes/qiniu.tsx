@@ -3,7 +3,7 @@
 export const loader = async ({ params }: LoaderFunctionArgs) => {
 
   // 替换为你的七牛云 Access Key 和 Secret Key
-  const ACCESS_KEY = process.env.QINIU_ACCESS_KEY;  //'_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
+  const ACCESS_KEY = '_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
   return new Response(ACCESS_KEY);
   const SECRET_KEY = process.env.QINIU_SECRET_KEY;  //'QFOnGvqUDF4EGO3n02ybiSdKjKAjWMk7gAHEcWkG'
 
