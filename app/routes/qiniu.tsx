@@ -35,7 +35,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 //return new Response(uploadToken);
 
   // 构建上传请求
-  const uploadUrl = `https://upload.qiniup.com/putb64/-1/key/${btoa(FILE_NAME)}`
+  const uploadUrl = `https://upload.qiniup.com/putb64/-2/key/${btoa(FILE_NAME)}`
   //const uploadUrl = 'http://up-z2.qiniup.com'	
   const uploadRequest = new Request(uploadUrl, {
     method: 'POST',
