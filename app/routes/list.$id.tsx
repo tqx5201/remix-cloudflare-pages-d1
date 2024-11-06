@@ -1,13 +1,13 @@
 
-export const loader = async ({ context,params }: LoaderArgs) => {
+export const loader = async ({ context,params }: LoaderFunctionArgs) => {
   const db = context.DB as D1Database;
 
-  const { results } = await db
+  const result = await db
     .prepare("SELECT * FROM iptv_list")
     .all();
 
-  return new Respose(results);
-};
+  return new Respose(JSON.stringify(result));
+});
 
 function mergeItems(str) {
     let arr = str.split('\n');
