@@ -31,7 +31,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     .then(arrayBuffer => btoa(String.fromCharCode(...new Uint8Array(arrayBuffer))))
 
   // 构建上传凭证
-  const uploadToken = `${ACCESS_KEY}:${encodedPolicy}:${sign}`
+  const uploadToken = `${ACCESS_KEY}:${sign}:${encodedPolicy}`
 
   // 构建上传请求
   const uploadUrl = `https://upload.qiniup.com/putb64/-1/key/${btoa(FILE_NAME)}`
@@ -50,6 +50,3 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   // 返回响应结果
   return response;
 }
-
-
-
