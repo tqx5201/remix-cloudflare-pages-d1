@@ -40,7 +40,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
         body: JSON.stringify(myParams),
     });
 
-return new Response(response);
+return new Response(JSON.stringify(response));
     
     
     const { status, statusText, headers } = response;
