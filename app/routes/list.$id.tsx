@@ -9,9 +9,6 @@ export const loader = async ({ context,params }: LoaderArgs) => {
   return new Respose(results);
 };
 
-export default function Index() {
-
-
 function mergeItems(str) {
     let arr = str.split('\n');
     // 过滤掉空值
