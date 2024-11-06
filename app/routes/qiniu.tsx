@@ -3,12 +3,12 @@
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
 	// 替换为你的七牛云 Access Key 和 Secret Key
-  const ACCESS_KEY = '_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
-  const SECRET_KEY = 'QFOnGvqUDF4EGO3n02ybiSdKjKAjWMk7gAHEcWkG'
+  const ACCESS_KEY = env.QINIU_ACCESS_KEY;  //'_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
+  const SECRET_KEY = env.QINIU_SECRET_KEY;  //'QFOnGvqUDF4EGO3n02ybiSdKjKAjWMk7gAHEcWkG'
 
   // 替换为你的七牛云存储空间名称和文件名称
   const BUCKET_NAME = 'diyp'
-  const FILE_NAME = 'test.txt'
+  const FILE_NAME = 'list_cf_yd.txt'
 
   // 要上传的字符串
   const stringToUpload = 'Hello, Qiniu Cloud!'
