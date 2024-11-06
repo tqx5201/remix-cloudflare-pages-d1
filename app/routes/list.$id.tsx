@@ -1,12 +1,12 @@
 
-export const loader = async ({ context,parame }: LoaderArgs) => {
+export const loader = async ({ context,params }: LoaderArgs) => {
   const db = context.DB as D1Database;
 
   const { results } = await db
     .prepare("SELECT * FROM iptv_list")
     .all();
 
-  return new respose(results);
+  return new Respose(results);
 };
 
 export default function Index() {
