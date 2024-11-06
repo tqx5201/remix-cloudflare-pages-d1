@@ -7,7 +7,7 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
     .all();
 
   return new Respose(JSON.stringify(result));
-});
+};
 
 function mergeItems(str) {
     let arr = str.split('\n');
