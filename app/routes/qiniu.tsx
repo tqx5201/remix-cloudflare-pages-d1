@@ -1,10 +1,10 @@
 //import{ useLoaderData } from "@remix-run/react";
 
-export const loader = async ({ request, params }: LoaderFunctionArgs) => {
+export const loader = async ({ context, params }: LoaderFunctionArgs) => {
 
-	// 替换为你的七牛云 Access Key 和 Secret Key
-  const ACCESS_KEY = env.QINIU_ACCESS_KEY;  //'_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
-  const SECRET_KEY = env.QINIU_SECRET_KEY;  //'QFOnGvqUDF4EGO3n02ybiSdKjKAjWMk7gAHEcWkG'
+  // 替换为你的七牛云 Access Key 和 Secret Key
+  const ACCESS_KEY = context.QINIU_ACCESS_KEY;  //'_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
+  const SECRET_KEY = context.QINIU_SECRET_KEY;  //'QFOnGvqUDF4EGO3n02ybiSdKjKAjWMk7gAHEcWkG'
 
   // 替换为你的七牛云存储空间名称和文件名称
   const BUCKET_NAME = 'diyp'
