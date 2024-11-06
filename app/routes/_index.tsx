@@ -36,7 +36,7 @@ export default function Index() {
       <ul>
         {iptv_lists.map((iptv_list) => (
           <li key={iptv_list.id}>
-            {iptv_list.name}, {iptv_list.yys}
+            {iptv_list.name}, {hebing(iptv_list.list)}
           </li>
         ))}
       </ul>
@@ -44,10 +44,10 @@ export default function Index() {
   );
 }
 
-function hebing(){
+function hebing(str){
 // 假设我们有一个包含多个字符串的数组
-let arr = ['cctv1,xxx1', 'cctv1,xxx2', 'cctv1,xxx1', 'cctv2,yyy1', 'cctv2,yyy2', 'cctv2,yyy3', 'cctv2,yyy2'];
-
+//let arr = ['cctv1,xxx1', 'cctv1,xxx2', 'cctv1,xxx1', 'cctv2,yyy1', 'cctv2,yyy2', 'cctv2,yyy3', 'cctv2,yyy2'];
+let arr = str.split("\n");
 // 我们首先创建一个空对象来存储合并后的结果
 let merged = {};
 
@@ -67,7 +67,7 @@ arr.forEach(item => {
 // 现在我们将合并后的结果转换为所需的字符串格式
 let result = Object.keys(merged).map(key => {
     return `${key},${Array.from(merged[key]).join('#')}`;
-});
+}).join("\n");
 return result;
 //console.log(result); 
 // 输出: ['cctv1,xxx1#xxx2', 'cctv2,yyy1#yyy2#yyy3']
