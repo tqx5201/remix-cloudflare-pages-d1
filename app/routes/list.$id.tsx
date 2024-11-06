@@ -1,7 +1,7 @@
 
 export const loader = async ({ context,params }: LoaderFunctionArgs) => {
   const db = context.DB as D1Database;
-  const { id } = params.replace('.txt',''); 
+  const { id } = params; 
   const { results }= await db
     .prepare("SELECT * FROM iptv_list where yys = ?")
     .bind(id)
