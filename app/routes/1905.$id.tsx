@@ -34,7 +34,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
         "Content-Type": "application/json",
         "Origin": "https://www.1905.com"
     };
-
+return new Response(JSON.stringify(myParams));
     const response = await fetch(originalUrl, {
         method: "POST",// *GET, POST, PUT, DELETE, etc.
         headers: myHeaders,
