@@ -1,8 +1,5 @@
 //import{ useLoaderData } from "@remix-run/react";
-export const loader = async({
-    request,
-    params
-}: LoaderFunctionArgs) = >{
+export const loader = async({request,params}: LoaderFunctionArgs) = >{
     const { id } = params; //另一种写法params.id;//'1905b';
     const n = {
         "cctv6": "LIVEOCTI36HXJXB9U",
