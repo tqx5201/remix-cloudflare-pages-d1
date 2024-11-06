@@ -10,7 +10,7 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
   let re_str = '';
   for (const obj of results) {
       re_str += obj.name + ',#genre#\n';
-      //re_str += mergeItems(obj.list);
+      re_str += mergeItems(obj.list);
   }
   return new Response(re_str);
 };
