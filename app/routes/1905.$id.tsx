@@ -25,14 +25,12 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
         "uuid": uuid,
     };
     const http_query = jsonToQueryString(myParams) + "." + salt;
-    return new Response(http_query);
-	
     const hashBuffer = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(http_query));
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const sign = hashArray.map(b =>b.toString(16).padStart(2, '0')).join('');
 
     myParams['appid'] = 'W0hUwz8D';
-return new Response(JSON.stringfy(myParams));
+return new Response(JSON.stringify(myParams));
     const originalUrl = "https://profile.m1905.com/mvod/liveinfo.php";
     const myHeaders = {
         "Authorization": sign,
@@ -43,7 +41,7 @@ return new Response(JSON.stringfy(myParams));
     const response = await fetch(originalUrl, {
         method: "POST",// *GET, POST, PUT, DELETE, etc.
         headers: myHeaders,
-        body: JSON.stringfy(myParams),
+        body: JSON.stringify(myParams),
     });
 
     const {
