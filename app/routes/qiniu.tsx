@@ -34,7 +34,8 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const uploadToken = `${ACCESS_KEY}:${sign}:${encodedPolicy}`
 
   // 构建上传请求
-  const uploadUrl = `https://upload.qiniup.com/putb64/-1/key/${btoa(FILE_NAME)}`
+  //const uploadUrl = `https://upload.qiniup.com/putb64/-1/key/${btoa(FILE_NAME)}`
+  const uploadUrl = 'https://upload.qiniup.com/'	
   const uploadRequest = new Request(uploadUrl, {
     method: 'POST',
     headers: {
