@@ -28,9 +28,9 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     const hashBuffer = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(http_query));
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const sign = hashArray.map(b =>b.toString(16).padStart(2, '0')).join('');
-return new Response(sign);
-    myParams['appid'] = 'W0hUwz8D';
 
+    myParams['appid'] = 'W0hUwz8D';
+return new Response(JSON.stringfy(myParams));
     const originalUrl = "https://profile.m1905.com/mvod/liveinfo.php";
     const myHeaders = {
         "Authorization": sign,
