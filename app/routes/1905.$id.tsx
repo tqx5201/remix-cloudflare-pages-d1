@@ -1,7 +1,5 @@
 //import{ useLoaderData } from "@remix-run/react";
-//export const loader = async({request,params}: LoaderFunctionArgs) = >{
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
-	
     const { id } = params; //另一种写法params.id;//'1905b';
     const n = {
         "cctv6": "LIVEOCTI36HXJXB9U",
@@ -30,7 +28,6 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     const sign = hashArray.map(b =>b.toString(16).padStart(2, '0')).join('');
 
     myParams['appid'] = 'W0hUwz8D';
-return new Response(JSON.stringify(myParams));
     const originalUrl = "https://profile.m1905.com/mvod/liveinfo.php";
     const myHeaders = {
         "Authorization": sign,
