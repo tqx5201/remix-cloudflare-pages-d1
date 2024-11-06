@@ -6,7 +6,7 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
     .prepare("SELECT * FROM iptv_list")
     .all();
 
-  return new Respose(JSON.stringify(result));
+  return new Response(JSON.stringify(result));
 };
 
 function mergeItems(str) {
