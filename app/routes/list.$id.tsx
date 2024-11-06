@@ -2,10 +2,10 @@
 export const loader = async ({ context,params }: LoaderFunctionArgs) => {
   const db = context.DB as D1Database;
   const { id } = params; 
-  //ids = id.split('.')[0];
+  const ids = id.split('.')[0];
   const { results } = await db
     .prepare("SELECT * FROM iptv_list where yys = ?")
-    .bind(id)
+    .bind(ids)
     .all();
   let re_str = '';
   for (const obj of results) {
