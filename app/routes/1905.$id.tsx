@@ -15,7 +15,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     const playerId = ts.substr(6) + ts.substr( - 3) + ts.substr( - 8);
     const uuid = generateUUID();
 
-    let params = {
+    let myParams = {
         "cid": 999999,
         "expiretime": (ts + 600),
         "nonce": ts,
@@ -24,12 +24,12 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
         "streamname": n[id],
         "uuid": uuid,
     };
-    const http_query = jsonToQueryString(params) + "." + salt;
+    const http_query = jsonToQueryString(myParams) + "." + salt;
     const hashBuffer = await crypto.subtle.digest('SHA-1', new TextEncoder().encode(http_query));
     const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const sign = hashArray.map(b = >b.toString(16).padStart(2, '0')).join('');
+    const sign = hashArray.map(b =>b.toString(16).padStart(2, '0')).join('');
 
-    params['appid'] = 'W0hUwz8D';
+    myParams['appid'] = 'W0hUwz8D';
 
     const originalUrl = "https://profile.m1905.com/mvod/liveinfo.php";
     const myHeaders = {
@@ -41,7 +41,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     const response = await fetch(originalUrl, {
         method: "POST",// *GET, POST, PUT, DELETE, etc.
         headers: myHeaders,
-        body: JSON.stringfy(params),
+        body: JSON.stringfy(myParams),
     });
 
     const {
@@ -63,14 +63,10 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     });
 }
 function jsonToQueryString(json) {
-    return Object.keys(json)
-            .map(key => 
-                encodeURIComponent(key) + '=' + encodeURIComponent(json[key])
-            )
-            .join('&');
+    return Object.keys(json).map(key => 
+        encodeURIComponent(key) + '=' + encodeURIComponent(json[key])
+        ).join('&');
 }
-
-
 
 function generateUUID() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
