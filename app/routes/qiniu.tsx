@@ -8,7 +8,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
   // 替换为你的七牛云存储空间名称和文件名称
   const BUCKET_NAME = 'diyp'
-  const FILE_NAME = 'list_7259.txt'
+  const FILE_NAME = 'test.txt'
 
   // 要上传的字符串
   const stringToUpload = 'Hello, Qiniu Cloud!'
@@ -16,7 +16,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   // 构建上传策略
   const policy = {
     scope: `${BUCKET_NAME}:${FILE_NAME}`,
-    deadline: Math.floor(Date.now() / 1000) + 3600 // 1小时有效期
+    deadline: 1730901680   //Math.floor(Date.now() / 1000) + 3600 // 1小时有效期
   }
 
   // 使用 HMAC-SHA1 签名策略
@@ -32,7 +32,10 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
 
   // 构建上传凭证
   const uploadToken = `${ACCESS_KEY}:${sign}:${encodedPolicy}`
+return new Response(uploadToken);
 
+
+	
   // 构建上传请求
   //const uploadUrl = `https://upload.qiniup.com/putb64/-1/key/${btoa(FILE_NAME)}`
   const uploadUrl = 'http://up-z2.qiniup.com'	
