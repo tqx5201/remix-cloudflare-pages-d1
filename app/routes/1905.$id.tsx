@@ -44,7 +44,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
     
     const { status, statusText, headers } = response;
     
-    return new Response(n[id] + status + statusText + JSON.stringify(myHeaders) + +JSON.stringify(myParams));
+    return new Response(n[id] + status + statusText + JSON.stringify(myHeaders) + JSON.stringify(myParams));
     
     
     
