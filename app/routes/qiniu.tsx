@@ -1,7 +1,7 @@
 //import{ useLoaderData } from "@remix-run/react";
 
 export const loader = async (env:Env,{ params }: LoaderFunctionArgs) => {
-  return new Response(env.QINIU_ACCESS_KEY);
+  return new Response(process.env.QINIU_ACCESS_KEY);
   // 替换为你的七牛云 Access Key 和 Secret Key
   const ACCESS_KEY = '_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
   return new Response(process.env);
