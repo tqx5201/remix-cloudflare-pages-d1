@@ -17,7 +17,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
   // 构建上传策略
   const policy = {
     scope: `${BUCKET_NAME}:${FILE_NAME}`,
-    deadline: 1730901680   //Math.floor(Date.now() / 1000) + 3600 // 1小时有效期
+    deadline: Math.floor(Date.now() / 1000) + 3600 // 1小时有效期
   }
 
   // 使用 HMAC-SHA1 签名策略
