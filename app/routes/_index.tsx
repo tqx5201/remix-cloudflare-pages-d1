@@ -32,12 +32,12 @@ export default function Index() {
 
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+      <h1>这是部署在cloudflare pages 的Remix</h1>
       <ul>
         {iptv_lists.map((iptv_list) => (
           <li key={iptv_list.id}>
             {iptv_list.name},#genre#
-            {mergeItems(iptv_list.list)}
+            {iptv_list.yys}
           </li>
         ))}
       </ul>
