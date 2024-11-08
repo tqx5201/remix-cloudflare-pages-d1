@@ -19,9 +19,10 @@ export const loader = async ({ context }: LoaderArgs) => {
   const db = context.DB as D1Database;
   const sql = 'CREATE TABLE Customers222 (CustomerID INT PRIMARY KEY autoincrement, CompanyName TEXT, ContactName TEXT, PRIMARY KEY (`CustomerID`));';
   const { results } = await db
-    .prepare(sql);
+    //.prepare(sql);
     //.all<iptv_list>();
-
+    .exec(sql);
+  return new Response(results);
   return json({
     iptv_lists: results ?? [],
   });
