@@ -12,7 +12,7 @@ type iptv_list = {
 export const loader = async ({ context }: LoaderArgs) => {
   const db = context.DB as D1Database;
   const sql = 'SELECT * FROM iptv_list';
-  const results = await db
+  const { results } = await db
     .prepare(sql)
     .all<iptv_list>();
 
