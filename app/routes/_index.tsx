@@ -9,23 +9,13 @@ type iptv_list = {
   yys: string;
 };
 
-type Customer = {
-  CustomerID: number;
-  CompanyName: string;
-  ContactName: string;
-};
-
 export const loader = async ({ context }: LoaderArgs) => {
   const db = context.DB as D1Database;
   const sql = 'SELECT * FROM iptv_list';
-  //const results = await db
-    //.prepare(sql)
-    //.all<iptv_list>();
-  await db.exec(`CREATE TABLE IF NOT EXISTS users (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL)`);
-  return new Response('results');
+  const results = await db
+    .prepare(sql)
+    .all<iptv_list>();
+
   return json({
     iptv_lists: results ?? [],
   });
