@@ -26,7 +26,7 @@ function get_live(ids,domain){
 	let ch_id = ch_arr[0];
 	let ch_qxd = ch_arr[1];
 		
-	let stream = `${domain}/live/8ne5i_sccn,${ch_id}_hls_pull_${ch_qxd}K/`;
+	let stream = `${domain}/live/default_default,${ch_id}_hls_pull_${ch_qxd}K/`;
 	var time = Math.floor(new Date().getTime()/1000);
 	let timestamp = parseInt((time-60)/6);
 	let current = "#EXTM3U\r\n";
@@ -64,7 +64,7 @@ function get_back(playseek,ids,domain){
 	var s_back_id = parseInt(stimestamp/6);
 	var e_back_id = parseInt(etimestamp/6);
 	
-	let stream = `${domain}/live/8ne5i_sccn,${ch_id}_hls_pull_${ch_qxd}K/`;
+	let stream = `${domain}/live/default_default,${ch_id}_hls_pull_${ch_qxd}K/`;
 	var current = "#EXTM3U\r\n";
     current += "#EXT-X-VERSION:3\r\n";
     current += "#EXT-X-TARGETDURATION:6\r\n";
