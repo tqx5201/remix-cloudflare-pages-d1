@@ -1,6 +1,6 @@
 
 export const loader = async ({ context,params }: LoaderFunctionArgs) => {
-  const db = context.DB as D1Database;
+  /*const db = context.DB as D1Database;
   const { id } = params; 
   const ids = id.split('.')[0];
   const { results } = await db
@@ -13,7 +13,7 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
       re_str += mergeItems(obj.list) + '\n';
   }
   //return new Response(re_str);
-
+*/
 
   
     //将上面整理好的代码上传至qiniu
@@ -24,11 +24,11 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
 
   // 替换为你的七牛云存储空间名称和文件名称
   const BUCKET_NAME = 'diyp';
-  const FILE_NAME = 'list_' + ids + '_cf.txt';
-
+  //const FILE_NAME = 'list_' + ids + '_cf.txt';
+  const FILE_NAME = 'list_yd_cf.txt';
   // 要上传的字符串
-  //const stringToUpload = 'Hello, Qiniu Cloud!';
-  const stringToUpload = re_str;
+  const stringToUpload = 'Hello, Qiniu Cloud!20250112';
+  //const stringToUpload = re_str;
 
   // 构建上传策略
   const policy = {
