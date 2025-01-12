@@ -4,7 +4,10 @@ export async function action({ context,request }) {
   const db = context.DB as D1Database;
   const formData = await request.formData();
   const action = formData.get("action");
-  
+  return json({ message: `Hello, ${action}!` });
+
+
+  /*
   if(action=='get_categorys'){
     const yys = formData.get("yys");
     const { results } = await db
@@ -21,4 +24,5 @@ export async function action({ context,request }) {
 
   return new Response(results);
   //return json({ data: ${results} });
+  */
 }
