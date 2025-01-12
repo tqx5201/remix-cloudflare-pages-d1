@@ -1,4 +1,11 @@
 export const loader = async ({ context,params }: LoaderFunctionArgs) => {
+
+// 将对象转换为JSON字符串
+  const jsonString = JSON.stringify(params);
+  // 返回JSON响应
+  return json({ jsonString });
+
+  
   return new Response(params);
   const db = context.DB as D1Database;
   const { id } = params; 
