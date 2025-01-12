@@ -20,15 +20,13 @@ export async function action({ context,request }) {
     .bind(id)
     .all();
   }
- return json({ message: `Hello, ${action}!` });
-
+ return results;
   
+ return json({ message: `Hello, ${action}!` });
  const jsonString = JSON.stringify(results);
 
   // 返回JSON响应
   return json({ jsonString });
-
-  
   //return new Response(re_str);
   //return new Response(results);
   //return json({ data: ${results} });
