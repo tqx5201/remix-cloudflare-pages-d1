@@ -20,7 +20,9 @@ export async function action({ context,request }) {
     .bind(id)
     .all();
   }
+ return json({ message: `Hello, ${action}!` });
 
+  
  const jsonString = JSON.stringify(results);
 
   // 返回JSON响应
