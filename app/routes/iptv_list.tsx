@@ -1,5 +1,14 @@
 import { json } from "@remix-run/cloudflare";
 
+export default function Index() {
+  return (
+    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+      <h1>这是部署在cloudflare pages 的Remix</h1>
+    </div>
+  );
+}
+
+
 export async function action({ context,request }) {
   const db = context.DB as D1Database;
   const formData = await request.formData();
@@ -13,6 +22,13 @@ export async function action({ context,request }) {
     .prepare("SELECT * FROM iptv_list where yys = ?")
     .bind(yys)
     .all();
+    let re_str = '';
+    for (const obj of results) {
+      re_str += obj.name + ',#genre#\n';
+      re_str += obj.list + '\n';
+    }
+    return new Response(re_str);
+    
   }else if(action=='get_list'){
     const id = formData.get("id");
     const { results } = await db
@@ -20,8 +36,8 @@ export async function action({ context,request }) {
     .bind(id)
     .all();
   }
+ /* 
  return results;
-  
  return json({ message: `Hello, ${action}!` });
  const jsonString = JSON.stringify(results);
 
@@ -30,5 +46,5 @@ export async function action({ context,request }) {
   //return new Response(re_str);
   //return new Response(results);
   //return json({ data: ${results} });
-  
+  */
 }
