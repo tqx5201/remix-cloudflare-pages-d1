@@ -1,4 +1,4 @@
-import { json } from "@remix-run/cloudflare";
+$import { json } from "@remix-run/cloudflare";
 
 export async function action({ context,request }) {
   const db = context.DB as D1Database;
@@ -20,5 +20,5 @@ export async function action({ context,request }) {
   }
 
   
-  return json({ data: results });
+  return json({ data: ${results} });
 }
