@@ -5,26 +5,26 @@ import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 
 
-export async function action({ request }) {
-  const formData = await request.formData();
-  const name = formData.get("name");
+export const loader = async ({ context,params }: LoaderFunctionArgs) => {
 
-  return json({ message: `Hello, ${name}!` });
-}
+// 将对象转换为JSON字符串
+  const jsonString = JSON.stringify(params);
+  // 返回JSON响应
+  return json({ jsonString });
 
-export default function FormExample() {
-  const actionData = useActionData();
-
-  return (
-    <div>
-      <form method="post" action="/form-example">
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-      {actionData && <p>{actionData.message}</p>}
-    </div>
-  );
-}
+  
+  return new Response(params);
+  const db = context.DB as D1Database;
+  const { id } = params; 
+  const ids = id.split('.')[0];
+  const { results } = await db
+    .prepare("SELECT * FROM iptv_list where yys = ?")
+    .bind(ids)
+    .all();
+  let re_str = '';
+  for (const obj of results) {
+      re_str += obj.name + ',#genre#\n';
+      re_str += mergeItems(obj.list) + '\n';
+  }
+  return new Response(re_str);
+};
