@@ -23,7 +23,7 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
 
   // 替换为你的七牛云存储空间名称和文件名称
   const BUCKET_NAME = 'diyp'
-  const FILE_NAME = 'list_cf_yd.txt'
+  const FILE_NAME = 'list_' + id + '_cf.txt'
 
   // 要上传的字符串
   //const stringToUpload = 'Hello, Qiniu Cloud!'
