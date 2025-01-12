@@ -16,7 +16,7 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
   return new Response(re_str);
 }
 
-function up2qiniu(up_str){
+function up2qiniu(up_str,id){
   //将上面整理好的代码上传至qiniu
   // 替换为你的七牛云 Access Key 和 Secret Key
   const ACCESS_KEY = '_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
