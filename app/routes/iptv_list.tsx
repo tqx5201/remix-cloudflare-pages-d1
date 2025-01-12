@@ -21,13 +21,13 @@ export async function action({ context,request }) {
     .all();
   }
 
-  let re_str = '';
-  for (const obj of results) {
-      re_str += obj.name + ',#genre#\n';
-      re_str += obj.list + '\n';
-  }
-  return new Response(re_str);
+ const jsonString = JSON.stringify(results);
+
+  // 返回JSON响应
+  return json({ jsonString });
+
   
+  //return new Response(re_str);
   //return new Response(results);
   //return json({ data: ${results} });
   
