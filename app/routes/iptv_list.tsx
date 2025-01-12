@@ -4,10 +4,9 @@ export async function action({ context,request }) {
   const db = context.DB as D1Database;
   const formData = await request.formData();
   const action = formData.get("action");
-  return json({ message: `Hello, ${action}!` });
+  //return json({ message: `Hello, ${action}!` });
 
 
-  /*
   if(action=='get_categorys'){
     const yys = formData.get("yys");
     const { results } = await db
@@ -22,7 +21,14 @@ export async function action({ context,request }) {
     .all();
   }
 
-  return new Response(results);
+  let re_str = '';
+  for (const obj of results) {
+      re_str += obj.name + ',#genre#\n';
+      re_str += mergeItems(obj.list) + '\n';
+  }
+  return new Response(re_str);
+  
+  //return new Response(results);
   //return json({ data: ${results} });
-  */
+  
 }
