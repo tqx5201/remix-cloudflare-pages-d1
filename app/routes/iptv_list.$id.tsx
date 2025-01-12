@@ -1,6 +1,9 @@
 // app/routes/form-example.jsx
-import { json } from "@remix-run/node";
-import { useActionData } from "@remix-run/react";
+
+import type { LoaderArgs } from "@remix-run/cloudflare";
+import { json } from "@remix-run/cloudflare";
+import { useLoaderData } from "@remix-run/react";
+
 
 export async function action({ request }) {
   const formData = await request.formData();
