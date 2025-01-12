@@ -1,3 +1,5 @@
+import { json } from "@remix-run/node";
+
 export const loader = async ({ context,params }: LoaderFunctionArgs) => {
 
 // 将对象转换为JSON字符串
