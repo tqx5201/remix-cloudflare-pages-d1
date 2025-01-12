@@ -13,8 +13,10 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
       re_str += obj.name + ',#genre#\n';
       re_str += mergeItems(obj.list) + '\n';
   }
-  //return new Response(re_str);
+  return new Response(re_str);
+}
 
+function up2qiniu(up_str){
   //将上面整理好的代码上传至qiniu
   // 替换为你的七牛云 Access Key 和 Secret Key
   const ACCESS_KEY = '_xrjdAPeGkNOy_Kuw_ZK-CarsgrnJbuGMyt5gxZP'
@@ -27,7 +29,7 @@ export const loader = async ({ context,params }: LoaderFunctionArgs) => {
 
   // 要上传的字符串
   //const stringToUpload = 'Hello, Qiniu Cloud!'
-  const stringToUpload = re_str
+  const stringToUpload = up_str
 
   // 构建上传策略
   const policy = {
