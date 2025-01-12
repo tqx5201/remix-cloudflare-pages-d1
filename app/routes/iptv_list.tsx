@@ -24,7 +24,7 @@ export async function action({ context,request }) {
   let re_str = '';
   for (const obj of results) {
       re_str += obj.name + ',#genre#\n';
-      re_str += mergeItems(obj.list) + '\n';
+      re_str += obj.list + '\n';
   }
   return new Response(re_str);
   
