@@ -1,40 +1,24 @@
-/*
 import { json } from "@remix-run/cloudflare";
 
-export async function action({ request }) {
+export async function action({ context,request }) {
+  const db = context.DB as D1Database;
   const formData = await request.formData();
-  const name = formData.get("name");
+  const action = formData.get("action");
+  
+  if(action=='get_categorys'){
+    const yys = formData.get("yys");
+    const { results } = await db
+    .prepare("SELECT * FROM iptv_list where yys = ?")
+    .bind(yys)
+    .all();
+  }else if(action=='get_list'){
+    const id = formData.get("id");
+    const { results } = await db
+    .prepare("select id,name,list,yys from iptv_list where id = ?")
+    .bind(id)
+    .all();
+  }
 
-  return json({ message: `Hello, ${name}!` });
-}
-
-
-//默认组件
-export default function Index() {
-
-  return (
-    <div>
-      <Form method="post" action="/form-example">
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
-        <button type="submit">Submit</button>
-      </Form>
-    </div>
-  );
-}
-*/
-
-
-import type { LoaderArgs } from "@remix-run/cloudflare";
-import { json } from "@remix-run/cloudflare";
-import { useLoaderData } from "@remix-run/react";
-
-export default function Index() {
-  return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>这是部署在cloudflare pages 的Remix</h1>
-    </div>
-  );
+  
+  return json({ data: results });
 }
