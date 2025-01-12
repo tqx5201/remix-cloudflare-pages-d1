@@ -1,5 +1,5 @@
+/*
 import { json } from "@remix-run/cloudflare";
-
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -7,7 +7,8 @@ export async function action({ request }) {
 
   return json({ message: `Hello, ${name}!` });
 }
-/*
+*/
+
 //默认组件
 export default function Index() {
 
@@ -23,4 +24,4 @@ export default function Index() {
     </div>
   );
 }
-*/
+
