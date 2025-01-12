@@ -10,7 +10,6 @@ export async function action({ request }) {
 
 //默认组件
 export default function FormExample() {
-  const actionData = useActionData();
 
   return (
     <div>
@@ -21,7 +20,6 @@ export default function FormExample() {
         </label>
         <button type="submit">Submit</button>
       </Form>
-      {actionData && <p>{actionData.message}</p>}
     </div>
   );
 }
