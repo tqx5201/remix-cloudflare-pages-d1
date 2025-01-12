@@ -7,7 +7,7 @@ export async function action({ request }) {
 
   return json({ message: `Hello, ${name}!` });
 }
-
+/*
 //默认组件
 export default function Index() {
 
@@ -23,3 +23,4 @@ export default function Index() {
     </div>
   );
 }
+*/
