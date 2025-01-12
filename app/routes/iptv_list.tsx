@@ -19,6 +19,6 @@ export async function action({ context,request }) {
     .all();
   }
 
-  
-  return json({ data: ${results} });
+  return new Response(results);
+  //return json({ data: ${results} });
 }
