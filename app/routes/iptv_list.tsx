@@ -9,7 +9,7 @@ export async function action({ request }) {
 }
 
 //默认组件
-export default function index() {
+export default function Index() {
 
   return (
     <div>
